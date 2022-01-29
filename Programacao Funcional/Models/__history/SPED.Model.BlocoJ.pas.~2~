@@ -1,0 +1,76 @@
+unit SPED.Model.BlocoJ;
+
+interface
+
+uses
+  SysUtils,
+  Classes;
+
+type
+  IBlocoJ = interface
+    function GetBlocoK: TObject;
+    function BlocoJ(Value: TStringList): IBlocoJ; Overload;
+    function BlocoJ: TStringList; Overload;
+    function GerarBlocoK(pCodigoEmpresa: Integer):IBlocoJ;
+  end;
+
+  TBlockJ = class(TInterfacedObject, IBlocoJ)
+  private
+    FSped: TStringList;
+    FBlocoJ: TStringList;
+
+    function GetBlocoK: TObject;
+    function BlocoJ(Value: TStringList): IBlocoJ; Overload;
+    function BlocoJ: TStringList; Overload;
+    function GerarBlocoK(pCodigoEmpresa: Integer; pSPED: TStringList):IBlocoJ;
+  public
+    class function New:IBlocoJ;
+  end;
+
+implementation
+
+{ TBlockJ }
+
+class function TBlockJ.New(pSPED: TStringList):IBlocoJ;
+begin
+  Result := Self.Create;
+end;
+
+function TBlockJ.GerarBlocoK(pCodigoEmpresa: Integer; pSPED: TStringList):IBlocoJ;
+var I: Integer;
+begin
+  //Querys necessarios
+  if not Assigned(pSPED) then
+    raise Exception.Create('SPED inválido');
+
+  if not Assigned(FBlocoJ) then
+    FBlocoJ := TStringList.Create;
+
+  FBlocoJ.AddStrings(pSPED);
+
+  FBlocoJ.Add('CODIGO|NATUREZA|VALOR');
+  for I := 0 to 10 do
+    FBlocoJ.Add('BLOCOJ' + I.ToString +
+                '|NAT' + I.ToString + '|R$')
+
+end;
+
+function TBlockJ.GetBlocoK: TObject;
+begin
+  Result := Self;
+end;
+
+function TBlockJ.BlocoJ(Value: TStringList): IBlocoJ;
+begin
+  Result := Self;
+  FBlocoJ := Value;
+end;
+
+function TBlockJ.BlocoJ: TStringList;
+begin
+  Result := FBlocoJ;
+end;
+
+
+
+end.

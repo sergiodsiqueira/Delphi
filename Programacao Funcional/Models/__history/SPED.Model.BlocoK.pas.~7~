@@ -1,0 +1,85 @@
+unit SPED.Model.BlocoK;
+
+interface
+
+uses
+  SysUtils,
+  Classes;
+
+type
+  IBlocoK = interface
+    function GetBlocoK: TObject;
+    function BlocoK(Value: TStringList): IBlocoK; Overload;
+    function BlocoK: TStringList; Overload;
+    function GerarBlocoK(pCodigoEmpresa: Integer; pSPED: TStringList):IBlocoK;
+  end;
+
+  TBlocoK = class(TInterfacedObject, IBlocoK)
+  private
+    FSped: TStringList;
+    FBlocoK: TStringList;
+
+    function GetBlocoK: TObject;
+    function BlocoK(Value: TStringList): IBlocoK; Overload;
+    function BlocoK: TStringList; Overload;
+    function GerarBlocoK(pCodigoEmpresa: Integer; pSPED: TStringList):IBlocoK;
+  public
+    class function New:IBlocoK;
+
+    destructor Destroy; override;
+  end;
+
+implementation
+
+{ TBlocoK }
+
+class function TBlocoK.New:IBlocoK;
+begin
+  Result := Self.Create;
+end;
+
+function TBlocoK.GerarBlocoK(pCodigoEmpresa: Integer; pSPED: TStringList):IBlocoK;
+var I: Integer;
+begin
+  //Querys necessarios
+  if not Assigned(pSPED) then
+    raise Exception.Create('SPED inválido');
+
+  if not Assigned(FBlocoK) then
+    FBlocoK := TStringList.Create;
+
+  FBlocoK.AddStrings(pSPED);
+
+  FBlocoK.Add('CODIGO|NATUREZA|VALOR');
+  for I := 0 to 10 do
+    FBlocoK.Add('BLOCOK: ' + I.ToString +
+                '| NAT ' + I.ToString + '| R$ ' + I.ToString + ',00')
+
+end;
+
+function TBlocoK.GetBlocoK: TObject;
+begin
+  Result := Self;
+end;
+
+function TBlocoK.BlocoK(Value: TStringList): IBlocoK;
+begin
+  Result := Self;
+  FBlocoK := Value;
+end;
+
+function TBlocoK.BlocoK: TStringList;
+begin
+  Result := FBlocoK;
+end;
+
+
+
+destructor TBlocoK.Destroy;
+begin
+  FBlocoK.Destroy;
+
+  inherited;
+end;
+
+end.

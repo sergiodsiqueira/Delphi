@@ -1,0 +1,89 @@
+unit SPED.Model.ProcessadorSPED;
+
+interface
+
+uses
+  SysUtils,
+  Classes,
+  SPED.Model.BlocoK;
+
+type
+  IProcessadorSPED = interface
+    function GerarSPED:Boolean;
+    function SPED:TStringList;
+    function BlocoK(Value: TStringList):IProcessadorSPED; Overload;
+    function BlocoK: TStringList; Overload;
+  end;
+
+  TProcessadorSPED = class(TInterfacedObject, IProcessadorSPED)
+  private
+    FEmpresa: Integer;
+    FSPED: TStringList;
+
+    function SPED:TStringList;
+    function GerarCabecalho:Boolean;
+    function GerarSPED:Boolean;
+    function BlocoK(Value: TStringList):IProcessadorSPED; Overload;
+    function BlocoK: TStringList; Overload;
+  public
+    class function New(pCodigoEmpresa: Integer):IProcessadorSPED;
+
+    constructor Create(pCodigoEmpresa: Integer);
+    destructor Destroy; override;
+  end;
+
+implementation
+
+{ TProcessadorSPED }
+
+class function TProcessadorSPED.New(pCodigoEmpresa: Integer):IProcessadorSPED;
+begin
+  Result := Self.Create(pCodigoEmpresa);
+end;
+
+function TProcessadorSPED.BlocoK(Value: TStringList): IProcessadorSPED;
+begin
+
+end;
+
+function TProcessadorSPED.BlocoK: TStringList;
+begin
+
+end;
+
+function TProcessadorSPED.SPED: TStringList;
+begin
+  Result := FSPED;
+end;
+
+constructor TProcessadorSPED.Create(pCodigoEmpresa: Integer);
+begin
+  FSPED := TStringList.Create;
+  FEmpresa := pCodigoEmpresa;
+
+  GerarCabecalho();
+end;
+
+destructor TProcessadorSPED.Destroy;
+begin
+  FSPED.DisposeOf;
+
+  inherited;
+end;
+
+function TProcessadorSPED.GerarCabecalho: Boolean;
+begin
+  if not Assigned(FSPED) then
+    raise Exception.Create('Erro ao carregar SPED: cabeçalho');
+
+  FSPED.Add('CPNJ: 00.'+FEmpresa.ToString);
+  FSPED.Add('---------------------------------------------------------------');
+end;
+
+
+function TProcessadorSPED.GerarSPED: Boolean;
+begin
+
+end;
+
+end.
