@@ -10,9 +10,9 @@ Desde a versão do Delphi 2010, já é possível trabalhar com paradigma de prog
 
 ## Objetivo
 Encadear os blocos de informações necessárias para gerar o SPED. Por que isso se torna interessante? Isolamos nas classes as regras de negocio (isso já existe POO 🚨) e o mais importante legibilidade do código. Além de controlar vazamentos de memoria com o uso de *Interfaces*.
-SPED (Classe que contém o cabeçalho do SPED)
-BLOCOK (Classe que contém informações do Bloco)
-BLOCOJ (Classe que contém informações do Bloco)
+- SPED (Classe que contém o cabeçalho do SPED)
+- BLOCOK (Classe que contém informações do Bloco)
+- BLOCOJ (Classe que contém informações do Bloco)
 
 De forma *simplista* a ideia é que se preciso do Bloco K :
 
