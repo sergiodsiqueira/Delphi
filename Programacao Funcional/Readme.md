@@ -18,7 +18,7 @@ De forma *simplista* a ideia é que se preciso do Bloco K :
 
     SPED.BlocoK;
 
-se também desejo o Bloco J encadeamos ele junto:
+se também desejar o Bloco J encadeamos ele junto:
 
     SPED.BlocoK.BlocoJ.Gerar;
 
