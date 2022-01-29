@@ -1,0 +1,60 @@
+unit uPrincipal;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Xml.xmldom, Xml.XMLIntf, Vcl.StdCtrls,
+  Xml.XMLDoc, uNFe;
+
+type
+  TfrmPrincipal = class(TForm)
+    Memo1: TMemo;
+    btnProcessar: TButton;
+    OpenDialog1: TOpenDialog;
+    btnFechar: TButton;
+    Label1: TLabel;
+    procedure btnProcessarClick(Sender: TObject);
+    procedure btnFecharClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+
+{$R *.dfm}
+
+
+procedure TfrmPrincipal.btnFecharClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmPrincipal.btnProcessarClick(Sender: TObject);
+var NFeRetorno: TNFeRetorno;
+begin
+  try
+    OpenDialog1.Execute;
+    try
+      NFeRetorno := TNFeRetorno.Create(OpenDialog1.FileName);
+    except
+      ShowMessage('Erro ao abrir o arquivo! Fechando sistema.');
+      Close;
+    end;
+
+    Memo1.Clear;
+
+    Memo1.Lines.Add(NFeRetorno.Status);
+    Memo1.Lines.Add(DateToStr(NFeRetorno.Data));
+    Memo1.Lines.Add(TimeToStr(NFeRetorno.Hora));
+  finally
+    NFeRetorno.Free;
+  end;
+end;
+
+end.

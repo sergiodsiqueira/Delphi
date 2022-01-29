@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2021/05/19 13:49:56.000.599,=C:\Users\SERGIO\Documents\Unit1.pas</Transaction>
+    <Transaction>2021/05/19 13:55:49.000.181,C:\Users\SERGIO\Documents\teste\Unit1.dfm=C:\Users\SERGIO\Documents\Unit1.dfm</Transaction>
+    <Transaction>2021/05/19 13:55:49.000.181,C:\Users\SERGIO\Documents\teste\Unit1.pas=C:\Users\SERGIO\Documents\Unit1.pas</Transaction>
+    <Transaction>2021/05/19 13:55:50.000.350,C:\Users\SERGIO\Documents\teste\Project1.dproj=C:\Users\SERGIO\Documents\Project1.dproj</Transaction>
+    <Transaction>2021/05/19 16:58:25.000.431,=C:\Users\SERGIO\Documents\teste\Unit2.pas</Transaction>
+    <Transaction>2021/05/19 16:58:36.000.045,C:\Users\SERGIO\Documents\teste\uNFe.pas=C:\Users\SERGIO\Documents\teste\Unit2.pas</Transaction>
+    <Transaction>2021/05/19 17:24:04.000.026,=C:\Users\SERGIO\Documents\teste\Project1.todo</Transaction>
+    <Transaction>2021/05/20 07:51:53.000.653,C:\Users\SERGIO\Documents\teste\Unit1.pas=C:\Users\SERGIO\Documents\teste\uPrincipal.pas</Transaction>
+    <Transaction>2021/05/20 07:51:53.000.654,C:\Users\SERGIO\Documents\teste\Unit1.dfm=C:\Users\SERGIO\Documents\teste\uPrincipal.dfm</Transaction>
+    <Transaction>2021/05/20 09:37:16.000.788,C:\Users\SERGIO\Documents\teste\Project1.dproj=C:\Users\SERGIO\Documents\teste\RetornoNFe.dproj</Transaction>
+  </Transactions>
+</BorlandProject>
