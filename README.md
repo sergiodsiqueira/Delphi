@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="150" height="150" src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Delphi_Language_Logo.png">
+  <img width="128" height="128" src="https://d2ohlsp9gwqc7h.cloudfront.net/images/logos/delphi-logo-128.webp">
 </p>
 
 ## Projetos Delphi & Firemonkey
